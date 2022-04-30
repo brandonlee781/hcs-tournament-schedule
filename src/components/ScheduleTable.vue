@@ -37,7 +37,16 @@ const headers = computed(() => {
   ]
 })
 
-const getMatches = (index: number) => matches.value.filter((m) => m.timeslot === index)
+const getMatches = (index: number) => {
+  const match = matches.value.filter((m) => m.timeslot === index)
+  console.log(match)
+  return [
+    match.find(m => m.stream === 'halo'),
+    match.find(m => m.stream === 'xbox'),
+    match.find(m => m.stream === 'red'),
+    match.find(m => m.stream === 'blue')
+  ]
+}
 
 </script>
 
